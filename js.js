@@ -108,8 +108,9 @@ fobject=function(x,y,m,force,sticky=false,selected=false,name='Star'){
             this.cleanforce.x=0;
             this.cleanforce.y=0;
         }
-        this.aaddForce=function(x,y){
+        this.AtomAddForce=function(x,y){
             x=parseFloat(x);
+            y=parseFloat(y);
         	if(Game.collapse===false){
 	        	this.force.x*=0.999;
     	        this.force.y*=0.999;
@@ -532,14 +533,14 @@ Game=function(){
 	                   x=f*(rx/r);
 	                   y=f*(ry/r);
 	               	}
-                  iam.aaddForce(x*1,y*1);                       
+                  iam.AtomAddForce(x*1,y*1);                       
               } else{
 	              	f=parseFloat(Game.gravity*((iam.mass*target.mass*2)/Math.pow(r,2)));
 	               	if(r>0){
 	                   x=f*(rx/r);
 	                   y=f*(ry/r);
 	               	}
-                  iam.aaddForce(x*-1,y*-1); 
+                  iam.AtomAddForce(x*-1,y*-1); 
               }
            }
         }
